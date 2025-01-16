@@ -1,4 +1,78 @@
-<!DOCTYPE html>
+Assignment: Shipping Management System
+
+Problem Statement:
+
+Shipping Management System oxing Object-Oriented JavaScript. The system will manage packages, shopnems, us
+
+Requirements
+
+1. Classes and Objects
+
+Create the following classes:
+
+Package: Represents a package to be shipped
+
+Shipment Represents the shipment details for packages
+
+Courier. Represents a courier responsible for delivering shipments Shipping Company Represents the overall chipping syriem
+
+2. Attributes:
+
+Package
+
+Unique identifier for the package
+
+weight: Weight of the package.
+
+destination: Address where the package needs to be delivered.
+
+Shipment
+
+ta: Unique identifier for the shipment.
+
+status: Status of the shipment (In Transit, Delivered, etc.).
+
+packages: List of packages in the shipment.
+
+courier: The courier assigned to deliver the shipment.
+
+Courier:
+
+14: Unique identifier for the courier.
+
+name: Name of the courier.
+
+vehicle: Vehicle details used for delivery.
+
+Shipping Company
+
+packages: List of all packages in the system.
+
+shipments: List of all shipments in the system.
+
+couriers: List of registered couriers.
+
+Functional Requirements
+
+Implement the following features:
+
+1. Add Packages: Add a new package to the system. 2. Register Couriers: Register couriers with the system.
+
+3. Create Shipment: Create a shipment with multiple packages and assign a courier.
+
+4. Track Shipment: Track the current status of a shipment by its ID.
+
+5. Update Shipment Status: Update the status of a shipment (eg. to Transit Delivered).
+
+6. View All Packages: Display all packages and their details
+
+7. View Courier Info: Display the courier details and the shipments they are handling
+
+Additional Features (Optional for advanced learners):
+
+Implement delivery time estimation based on the distance or weight.
+
+Allow searching for packages by destination or package ID<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
