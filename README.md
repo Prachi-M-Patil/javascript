@@ -1,3 +1,4 @@
+#problem
 class Package {
   constructor(id, weight, destination) {
     this.id = id;
