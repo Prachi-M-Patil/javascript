@@ -106,3 +106,81 @@ body {
 .cart-summary p {
     font-weight: bold;
 }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <div class="logo">ElectroShop</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Filter Section -->
+    <aside class="filter-section">
+        <h3>Filter By</h3>
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="laptops">Laptops</option>
+                <option value="phones">Phones</option>
+                <option value="accessories">Accessories</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="price">Price Range:</label>
+            <select id="price">
+                <option value="all">All</option>
+                <option value="low">Below $500</option>
+                <option value="medium">$500 - $1000</option>
+                <option value="high">Above $1000</option>
+            </select>
+        </div>
+    </aside>
+
+    <!-- Product Grid -->
+    <main class="product-grid">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <h4>Smartphone X</h4>
+            <p>Category: Phones</p>
+            <p>Price: $899</p>
+            <p>Rating: 4.5</p>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 2">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+        </div>
+        <!-- Repeat similar product cards for other sample data -->
+    </main>
+
+    <!-- Cart Summary -->
+    <aside class="cart-summary">
+        <h3>Cart Summary</h3>
+        <ul>
+            <li>Product 1: $899</li>
+            <li>Product 2: $1200</li>
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p>Total: $2099</p>
+    </aside>
+</body>
+</html>
+
+
