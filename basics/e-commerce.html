@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="image.png" alt="Logo"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <!-- <li><a href="add_to_cart.html">Add to Cart</a></li> -->
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>       
+    </nav>
+
+    <!-- Load icon library for search bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- The form -->
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="search product" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+   
+
+<div class="container">
+    <!-- Filter Section -->
+    <aside class="filter-section">
+        <h3>Filter By</h3>
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="laptops">Laptops</option>
+                <option value="phones">Phones</option>
+                <option value="accessories">Accessories</option>
+                <option value="clothes">clothing</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="price">Price Range:</label>
+            <select id="price">
+                <option value="all">All</option>
+                <option value="low">Below $500</option>
+                <option value="medium">$500 - $1000</option>
+                <option value="high">Above $1000</option>
+            </select>
+        </div>
+    </aside>
+
+    <!-- Cart Summary Section -->
+    <aside class="cart-summary">
+        <h3>Cart Summary</h3>
+        <ul>
+            <li>Product 1: $899</li>
+            <li>Product 2: $1200</li>
+            <!-- More cart items -->
+        </ul>
+        <p>Total: $2099</p>
+    </aside>
+</div>
+
+    <!-- Product Grid -->
+    <main class="product-grid">
+        <div class="product-card" data-category="phones" data-price="899">
+            <img src="phone.jpg" alt="Product 1">
+            <h4>Smartphone X</h4>
+            <p>Category: Phones</p>
+            <p>Price: $899</p>
+            <p>Rating: 4.5</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="800">
+            <img src="download.jpg" alt="Product 2">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="phones" data-price="899">
+            <img src="ph2.jpg" alt="Product 3">
+            <h4>smartphone abc</h4>
+            <p>Category: Phones</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="accessories" data-price="1200">
+            <img src="accessories.jpg" alt="Product 4">
+            <h4>Ladies Corner</h4>
+            <p>Category: accessories</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="clothing" data-price="899">
+            <img src="clothes.jpg" alt="Product 5">
+            <h4>Fashion</h4>
+            <p>Category: clothing </p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="500">
+            <img src="download.jpg" alt="Product 6">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="300">
+            <img src="download.jpg" alt="Product 6">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="902">
+            <img src="download.jpg" alt="Product 6">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="200">
+            <img src="download.jpg" alt="Product 6">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-card" data-category="laptops" data-price="1500">
+            <img src="download.jpg" alt="Product 6">
+            <h4>Laptop Pro</h4>
+            <p>Category: Laptops</p>
+            <p>Price: $1200</p>
+            <p>Rating: 4.8</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+    <footer>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Gift Corner</a></li>
+                <li><a href="#">Become a Seller</a></li>
+                <li><a href="#">©2007-2025 Flipkart.com</a></li>
+            </ul>       
+        </nav>
+    </footer>
+
+</html>
+
+css is /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation Menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #007BFF;
+    color: white;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Container for filter section and cart summary */
+.container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+/* Filter Section */
+.filter-section {
+    flex: 1; /* Takes up half of the available space */
+    padding: 1rem;
+    background-color: #f4f4f4;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.filter-section h3 {
+    margin-bottom: 1rem;
+}
+
+.filter-group {
+    margin-bottom: 1rem;
+}
+
+/* Cart Summary */
+.cart-summary {
+    flex: 1; /* Takes up half of the available space */
+    padding: 1rem;
+    background-color: #f4f4f4;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    margin-left: 1rem; /* Optional - space between the filter section and cart summary */
+}
+
+.cart-summary h3 {
+    margin-bottom: 1rem;
+}
+
+.cart-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.cart-summary li {
+    margin-bottom: 0.5rem;
+}
+
+.cart-summary p {
+    font-weight: bold;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 200px; /* Fix size of the images */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Search Form */
+form.example {
+    display: flex; /* Use flexbox to align items in a row */
+    width: 100%; /* Ensure the form takes full width */
+}
+
+form.example input[type=text] {
+    flex: 1; /* Takes available space */
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    background: #f1f1f1;
+    border-right: none; 
+}
+
+form.example button {
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Remove border on the button's left to avoid double border */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+/* Slideshow */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.mySlides {
+    display: none; /* hides the images by default */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next" button to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+footer {
+    background-color: #007BFF;
+    color: white;
+    padding: 1rem;
+    position: relative;
+    clear: both;
+    text-align: center;
+}
+and javascript is document.addEventListener('DOMContentLoaded', function() {
+    const categoryDropdown = document.getElementById('category');
+    const priceDropdown = document.getElementById('price');
+    const productCards = document.querySelectorAll('.product-card');
+
+    categoryDropdown.addEventListener('change', function() {
+        filterProducts();
+    });
+    
+    priceDropdown.addEventListener('change', function() {
+        filterProducts();
+    });
+
+    function filterProducts() {
+        const selectedCategory = categoryDropdown.value;
+        const selectedPrice = priceDropdown.value;
+
+        productCards.forEach(card => {
+            const productCategory = card.getAttribute('data-category');
+            const productPrice = parseFloat(card.getAttribute('data-price'));
+
+            let categoryMatch = (selectedCategory === 'all') || (selectedCategory === productCategory);
+            let priceMatch = false;
+
+            if (selectedPrice === 'all') {
+                priceMatch = true;
+            } else if (selectedPrice === 'low') {
+                priceMatch = productPrice < 500;
+            } else if (selectedPrice === 'medium') {
+                priceMatch = productPrice >= 500 && productPrice <= 1000;
+            } else if (selectedPrice === 'high') {
+                priceMatch = productPrice > 1000;
+            }
+
+            if (categoryMatch && priceMatch) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+});
+for this give me add to cart in javascript also give me html page displays the products that are added to cart
