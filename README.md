@@ -1,28 +1,18 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
-  providers: [CartService]  // Component-Specific Service
-})
-export class CartComponent implements OnChanges {
-  cartItems: any[] = [];
+@Injectable()
+export class CartService {
+  private cartItems: any[] = [];
 
-  @Input() newProduct: any;  // Receives product from AppComponent
+  addToCart(product: any) {
+    this.cartItems.push(product);
+  }
 
-  constructor(private cartService: CartService) {}
-
-  ngOnChanges() {
-    if (this.newProduct) {
-      this.cartService.addToCart(this.newProduct);
-      this.cartItems = this.cartService.getCartItems();
-    }
+  getCartItems() {
+    return this.cartItems;
   }
 
   clearCart() {
-    this.cartService.clearCart();
-    this.cartItems = this.cartService.getCartItems();
+    this.cartItems = [];
   }
 }
