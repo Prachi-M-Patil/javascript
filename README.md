@@ -1,22 +1,28 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { Component, Input, OnChanges } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
+  providers: [CartService]  // Component-Specific Service
 })
-export class ProductListComponent {
-  products: any[];
+export class CartComponent implements OnChanges {
+  cartItems: any[] = [];
 
-  @Output() productAdded = new EventEmitter<any>();  // Sends selected product to parent
+  @Input() newProduct: any;  // Receives product from AppComponent
 
-  constructor(private productService: ProductService) {
-    this.products = this.productService.getProducts();
+  constructor(private cartService: CartService) {}
+
+  ngOnChanges() {
+    if (this.newProduct) {
+      this.cartService.addToCart(this.newProduct);
+      this.cartItems = this.cartService.getCartItems();
+    }
   }
 
-  addToCart(product: any) {
-    this.productAdded.emit(product);  // Emit event to AppComponent
+  clearCart() {
+    this.cartService.clearCart();
+    this.cartItems = this.cartService.getCartItems();
   }
 }
-
