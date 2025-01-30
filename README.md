@@ -1,1 +1,22 @@
-https://chatgpt.com/share/679af76f-a8fc-8003-81ff-88a1fc135876
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+
+@Component({
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
+})
+export class ProductListComponent {
+  products: any[];
+
+  @Output() productAdded = new EventEmitter<any>();  // Sends selected product to parent
+
+  constructor(private productService: ProductService) {
+    this.products = this.productService.getProducts();
+  }
+
+  addToCart(product: any) {
+    this.productAdded.emit(product);  // Emit event to AppComponent
+  }
+}
+
