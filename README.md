@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class ProductService {
-  getProducts() {
-    return [
-      { id: 1, name: 'Laptop', price: 1000 },
-      { id: 2, name: 'Phone', price: 500 },
-      { id: 3, name: 'Tablet', price: 300 }
-    ];
+export class AppComponent {
+  selectedProduct: any;
+
+  onProductAdded(product: any) {
+    this.selectedProduct = product;  // Pass product to CartComponent
   }
 }
