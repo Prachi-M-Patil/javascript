@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductListComponent } from './product-list.component';
+import { CartComponent } from './cart.component';
+import { CartService } from '../../services/cart.service';
 
 @NgModule({
-  declarations: [ProductListComponent],
+  declarations: [CartComponent],
   imports: [CommonModule],
-  exports: [ProductListComponent]  // Export to use in `app.module.ts`
+  providers: [CartService],  // Component-Specific Service
+  exports: [CartComponent]  // Export to use in `app.module.ts`
 })
-export class ProductModule { }
+export class CartModule { }
