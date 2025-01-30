@@ -1,20 +1,20 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductService } from './services/product.service';
 
-X [ERROR] TS-996008: Component AppComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead? [plugin angular-compiler]
-
-    src/app/app.module.ts:12:4:
-      12 │     AppComponent,
-         ╵     ~~~~~~~~~~~~
-
-
-X [ERROR] TS-996008: Component ProductListComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead? [plugin angular-compiler]
-
-    src/app/app.module.ts:13:4:
-      13 │     ProductListComponent,
-         ╵     ~~~~~~~~~~~~~~~~~~~~
-
-
-X [ERROR] TS-996008: Component CartComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead? [plugin angular-compiler]
-
-    src/app/app.module.ts:14:4:
-      14 │     CartComponent
-         ╵     ~~~~~~~~~~~~~
+@NgModule({
+  declarations: [
+    AppComponent,
+    ProductListComponent,
+    CartComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [ProductService], // Global Service
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
