@@ -1,20 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { CartComponent } from './components/cart/cart.component';
-import { ProductService } from './services/product.service';
+import { CommonModule } from '@angular/common';
+import { ProductListComponent } from './product-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductListComponent,
-    CartComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [ProductService], // Global Service
-  bootstrap: [AppComponent]
+  declarations: [ProductListComponent],
+  imports: [CommonModule],
+  exports: [ProductListComponent]  // Export to use in `app.module.ts`
 })
-export class AppModule { }
+export class ProductModule { }
