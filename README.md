@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { ProductModule } from './modules/product/product.module';
-import { CartModule } from './modules/cart/cart.module';
-import { ProductService } from './services/product.service';
+Assignment: Online Learning Platform
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    ProductModule,  // Import Product Module
-    CartModule      // Import Cart Module
-  ],
-  providers: [ProductService], // Global Service
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+Scenario:
+
+You are building a simple online learning platform where users can navigate between different sections like Home, Courses, and Profile using Angular Modules and Routing.
+
+Requirements:
+
+1. Create an Angular app with separate modules for Home, Courses, and Profile.
+
+2. Implement routing so users can navigate between pages.
+
+3. Use RouterLink to navigate without refreshing the page.
+
+4. Pass a dynamic Course ID as a route parameter.
+
+5. Protect the Profile page with a simple authentication guard.
