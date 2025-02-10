@@ -1,17 +1,73 @@
-Assignment: Online Learning Platform
+import { Component, OnDestroy } from '@angular/core';
+import { interval, map, Observable, Subject, Subscription } from 'rxjs';
 
-Scenario:
+@Component({
+  selector: 'app-api-calling',
+  standalone: false,
+  templateUrl: './api-calling.component.html',
+  styleUrl: './api-calling.component.css'
+})
+export class APICallingComponent implements OnDestroy{
+  private stockPriceSubject= new Subject<number>();
+  latestprice: number| null = null;
+  subscription: Subscription| null = null;
+  count: number =0;
 
-You are building a simple online learning platform where users can navigate between different sections like Home, Courses, and Profile using Angular Modules and Routing.
+  constructor(){
+    interval(2000)
+    .pipe(map(()=> (Math.random()*1000).toFixed(2)))
+    .subscribe(price =>{
+      console.log('New stock price', price);
+      this.stockPriceSubject.next(parseFloat(price));
+    })
+  }
 
-Requirements:
+  subscribeToUpdates(){
+    this.subscription = this.stockPriceSubject.subscribe(price =>{
+      this.latestprice =  price;
+      console.log('recieved stock price:', price);
+    });
+    this.count++;
+  }
 
-1. Create an Angular app with separate modules for Home, Courses, and Profile.
+  unsubscribeFromUpdate(){
+    this.subscription?.unsubscribe();
+    this.count--;
+    console.log('unsubscribed from stock updates');
+  }
 
-2. Implement routing so users can navigate between pages.
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
+//   stockPrice: number| undefined;
+//   subscription: Subscription| null = null;
+//   flag:boolean =false;
 
-3. Use RouterLink to navigate without refreshing the page.
+//   fetchStockPrice(){
+//     this.getStockPrice().subscribe(price => {
+//       this.stockPrice =price;
+//       console.log('New Stock price fetched:', price);
+//     });
+//   }
 
-4. Pass a dynamic Course ID as a route parameter.
+//   getStockPrice(): Observable<number>{
+//     return new Observable(observer => {
+//       const price =(Math.random()*1000).toFixed(2);
+//       observer.next(parseFloat(price));
+//       observer.complete();
+//     })
 
-5. Protect the Profile page with a simple authentication guard.
+//   }
+
+//   unsubscribe(){
+//       if(this.subscription){
+//         this.subscription.unsubscribe();
+//       console.log('unsubscribed');
+//       this.subscription= null;
+//       this.flag=true;
+  
+//       }
+
+// }
+// }
+}
