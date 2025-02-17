@@ -1,73 +1,61 @@
-import { Component, OnDestroy } from '@angular/core';
-import { interval, map, Observable, Subject, Subscription } from 'rxjs';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-api-calling',
-  standalone: false,
-  templateUrl: './api-calling.component.html',
-  styleUrl: './api-calling.component.css'
+  selector: 'app-notification',
+  template: `<div [ngClass]="type">{{ message }}</div>`,
+  styles: [`
+    .success { color: green; }
+    .warning { color: orange; }
+    .error { color: red; }
+  `]
 })
-export class APICallingComponent implements OnDestroy{
-  private stockPriceSubject= new Subject<number>();
-  latestprice: number| null = null;
-  subscription: Subscription| null = null;
-  count: number =0;
+export class NotificationComponent {
+  @Input() type: 'success' | 'warning' | 'error';
+  @Input() message: string;
+}
 
-  constructor(){
-    interval(2000)
-    .pipe(map(()=> (Math.random()*1000).toFixed(2)))
-    .subscribe(price =>{
-      console.log('New stock price', price);
-      this.stockPriceSubject.next(parseFloat(price));
-    })
+
+
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NotificationService {
+  private notificationSubject = new BehaviorSubject<{ type: 'success' | 'warning' | 'error', message: string } | null>(null);
+  notification$ = this.notificationSubject.asObservable();
+
+  showNotification(type: 'success' | 'warning' | 'error', message: string) {
+    this.notificationSubject.next({ type, message });
   }
 
-  subscribeToUpdates(){
-    this.subscription = this.stockPriceSubject.subscribe(price =>{
-      this.latestprice =  price;
-      console.log('recieved stock price:', price);
-    });
-    this.count++;
+  clearNotification() {
+    this.notificationSubject.next(null);
   }
+}
 
-  unsubscribeFromUpdate(){
-    this.subscription?.unsubscribe();
-    this.count--;
-    console.log('unsubscribed from stock updates');
+
+import { Component } from '@angular/core';
+import { NotificationService } from './notification.service';
+
+@Component({
+  selector: 'app-notification-host',
+  template: `
+    <app-notification *ngIf="notification$ | async as notification"
+                      [type]="notification.type"
+                      [message]="notification.message"></app-notification>
+    <button (click)="showNotification('success', 'Success!')">Show Success</button>
+    <button (click)="showNotification('warning', 'Warning!')">Show Warning</button>
+    <button (click)="showNotification('error', 'Error!')">Show Error</button>
+  `
+})
+export class NotificationHostComponent {
+  notification$ = this.notificationService.notification$;
+
+  constructor(private notificationService: NotificationService) {}
+
+  showNotification(type: 'success' | 'warning' | 'error', message: string) {
+    this.notificationService.showNotification(type, message);
   }
-
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
-//   stockPrice: number| undefined;
-//   subscription: Subscription| null = null;
-//   flag:boolean =false;
-
-//   fetchStockPrice(){
-//     this.getStockPrice().subscribe(price => {
-//       this.stockPrice =price;
-//       console.log('New Stock price fetched:', price);
-//     });
-//   }
-
-//   getStockPrice(): Observable<number>{
-//     return new Observable(observer => {
-//       const price =(Math.random()*1000).toFixed(2);
-//       observer.next(parseFloat(price));
-//       observer.complete();
-//     })
-
-//   }
-
-//   unsubscribe(){
-//       if(this.subscription){
-//         this.subscription.unsubscribe();
-//       console.log('unsubscribed');
-//       this.subscription= null;
-//       this.flag=true;
-  
-//       }
-
-// }
-// }
 }
